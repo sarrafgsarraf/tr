@@ -20,16 +20,3 @@ rm rustdesk.deb  # Clean up the downloaded file
 echo "Installing Chromium..."
 sudo apt install -y chromium-browser
 
-# Change username of the current user
-CURRENT_USER=$(whoami)
-NEW_USER="BPF"
-echo "Changing username from $CURRENT_USER to $NEW_USER..."
-sudo usermod -l "$NEW_USER" "$CURRENT_USER"
-sudo usermod -d "/home/$NEW_USER" -m "$NEW_USER"
-
-# Change user password
-NEW_PASSWORD="olyretail"
-echo "Changing password for $NEW_USER..."
-echo -e "$NEW_PASSWORD\n$NEW_PASSWORD" | sudo passwd "$NEW_USER"
-
-echo "Script execution completed!"
